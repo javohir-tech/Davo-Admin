@@ -2,11 +2,13 @@
     {
         "id": 1,
         "path": "",
-        "name": "Home"
+        "name": "Home", 
+        "icon" :"HomeOutlined"
     },
     {
         "id": 2, 
         "path": "medicines",
-        "name": "Dorilar"
+        "name": "Dorilar",
+        "icon" :"MedicineBoxOutlined"
     }
 ]

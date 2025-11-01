@@ -1,14 +1,17 @@
 <template>
     <a-layout has-sider>
-        <a-layout-sider class="layout-sider">
+        <a-layout-sider class="layout-sider" v-model:collapsed="collapsed" collapsible>
             <div class="logo" />
             <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
                 <a-menu-item v-for="link in layoutLink" :key="link.id">
+                    <template #icon>
+                        <component :is="Icons[link.icon]" class="icons" />
+                    </template>
                     <span class="nav-text">{{ link.name }}</span>
                 </a-menu-item>
             </a-menu>
         </a-layout-sider>
-        <a-layout class="layout">
+        <a-layout :class="collapsed ? 'layout-collapsed' : 'layout'">
             <a-layout-header class="layout-header">
                 <strong>Header</strong>
             </a-layout-header>
@@ -22,7 +25,13 @@
 import { ref } from 'vue';
 //Links
 import layoutLink from '@/Links/layoutLinks.json'
+//Antd Icons
+import { HomeOutlined, MedicineBoxOutlined } from '@ant-design/icons-vue'
+
+const Icons = { HomeOutlined, MedicineBoxOutlined }
 const selectedKeys = ref([1]);
+const collapsed = ref(false)
+
 </script>
 <style scoped>
 #components-layout-demo-fixed-sider .logo {
@@ -48,8 +57,16 @@ const selectedKeys = ref([1]);
     bottom: 0
 }
 
+.layout-collapsed {
+    margin-left: 80px;
+}
+
 :deep(.layout) {
     margin-left: 200px;
+}
+
+:deep(.layout-collapsed){
+    margin-left: 80px;
 }
 
 :deep(.layout-content) {
@@ -61,5 +78,9 @@ const selectedKeys = ref([1]);
 :deep(.layout-header) {
     background: red;
     padding: 0
+}
+
+:deep(.icons) {
+    font-size: 18px !important;
 }
 </style>
