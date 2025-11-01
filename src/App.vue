@@ -1,11 +1,9 @@
 <script setup>
+
 </script>
 
 <template>
-  <!-- <RouterView /> -->
-   salom
+  <RouterView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
