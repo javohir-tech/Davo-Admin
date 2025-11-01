@@ -3,7 +3,7 @@
         <a-layout-sider class="layout-sider" v-model:collapsed="collapsed" collapsible>
             <div class="logo" />
             <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-                <a-menu-item v-for="link in layoutLink" :key="link.id">
+                <a-menu-item v-for="link in layoutLink" :key="link.id" @click="goRoute(link.path)">
                     <template #icon>
                         <component :is="Icons[link.icon]" class="icons" />
                     </template>
@@ -23,14 +23,23 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+//Vue Router
+import { useRouter } from 'vue-router';
 //Links
 import layoutLink from '@/Links/layoutLinks.json'
 //Antd Icons
-import { HomeOutlined, MedicineBoxOutlined } from '@ant-design/icons-vue'
+import { FundProjectionScreenOutlined, MedicineBoxOutlined, IdcardOutlined, UserOutlined, ReadOutlined, NodeIndexOutlined } from '@ant-design/icons-vue'
 
-const Icons = { HomeOutlined, MedicineBoxOutlined }
+const router = useRouter()
+
+const Icons = { FundProjectionScreenOutlined, MedicineBoxOutlined, IdcardOutlined, UserOutlined, ReadOutlined, NodeIndexOutlined }
+
 const selectedKeys = ref([1]);
-const collapsed = ref(false)
+const collapsed = ref(false);
+
+const goRoute = (path) => {
+    router.push(path)
+}
 
 </script>
 <style scoped>
@@ -65,7 +74,7 @@ const collapsed = ref(false)
     margin-left: 200px;
 }
 
-:deep(.layout-collapsed){
+:deep(.layout-collapsed) {
     margin-left: 80px;
 }
 
