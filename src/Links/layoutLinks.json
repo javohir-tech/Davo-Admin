@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "path": "",
+        "name": "Home"
+    },
+    {
+        "id": 2, 
+        "path": "medicines",
+        "name": "Dorilar"
+    }
+]

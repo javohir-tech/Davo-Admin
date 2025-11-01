@@ -7,7 +7,11 @@
                     <a-input v-model:value="formState.login" placeholder="Loginni kiriting" />
                 </a-form-item>
                 <a-form-item label="Parol" name="password" has-feedback>
-                    <a-input-password v-model:value="formState.password" placeholder="Parolni kiriting" />
+                    <a-input-password v-model:value="formState.password" placeholder="Parolni kiriting">
+                        <template #prefix>
+                            <LockOutlined />
+                        </template>
+                    </a-input-password>
                 </a-form-item>
                 <a-form-item>
                     <a-button type="primary" html-type="submit" block>
@@ -24,9 +28,9 @@
 
 <script setup>
 //VUE
-import { reactive, ref } from 'vue';
+import { reactive, ref, h } from 'vue';
 //Antd VUE
-import { SwapRightOutlined } from '@ant-design/icons-vue'
+import { LockOutlined, SwapRightOutlined } from '@ant-design/icons-vue'
 import { message } from 'ant-design-vue';
 
 const formState = reactive({
@@ -68,7 +72,7 @@ const onFinish = () => {
         console.log(formState.password)
         formRef.value.resetFields()
     } catch (error) {
-        
+
     }
 }
 
