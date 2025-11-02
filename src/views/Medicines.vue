@@ -3,14 +3,14 @@
         <div class="input-search">
             <h2>Dorilar Bo'limi</h2>
             <a-input ref="searchInput" size="large" v-model:value="searchQuery"
-                placeholder="Dorilarni nomi  bo'yicha qidiring..."
+                placeholder="Dorilarni nomi yoki categoriyasi bo'yicha qidiring..."
                 :prefix="h(SearchOutlined, { class: 'my-icon-class' })">
                 <template #suffix>
                     <span class="access">Ctrl+K</span>
                 </template>
             </a-input>
         </div>
-        <a-table :columns="column" :data-source="filterdMedicines" :loading="loading">
+        <a-table :columns="column" :data-source="filterdMedicines" :loading="loading" @change="onChange">
             <template #bodyCell="{ column, record }">
                 <template v-if="column.dataIndex === 'prescriptionRequired'">
                     <a-tag :color="record.prescriptionRequired ? 'red' : 'green'">
@@ -87,7 +87,10 @@ const filterdMedicines = computed(() => {
     if (!searchQuery) {
         return data
     }
-    return data.value.filter(medicine => medicine.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
+    return data.value.filter(medicine =>
+        medicine.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        medicine.category.toLowerCase().includes(searchQuery.value.toLowerCase())
+    )
 })
 
 //methods
@@ -98,12 +101,16 @@ const handleShortCut = (e) => {
     }
 }
 
+const onChange = () => {
+    window.scroll({top:0 , behavior: 'smooth'})
+}
+
 onMounted(() => {
     getData()
     window.addEventListener('keydown', handleShortCut)
 })
 
-onBeforeUnmount(()=>{
+onBeforeUnmount(() => {
     window.removeEventListener('keydown', handleShortCut)
 })
 </script>
@@ -113,7 +120,7 @@ onBeforeUnmount(()=>{
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .my-icon-class {
