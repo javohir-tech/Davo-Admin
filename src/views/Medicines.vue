@@ -2,13 +2,18 @@
     <div>
         <div class="input-search">
             <h2>Dorilar Bo'limi</h2>
-            <a-input ref="searchInput" size="large" v-model:value="searchQuery"
-                placeholder="Dorilarni nomi yoki categoriyasi bo'yicha qidiring..."
-                :prefix="h(SearchOutlined, { class: 'my-icon-class' })">
-                <template #suffix>
-                    <span class="access">Ctrl+K</span>
-                </template>
-            </a-input>
+            <a-flex gap="6">
+                <a-input ref="searchInput" size="large" v-model:value="searchQuery"
+                    placeholder="Dorilarni nomi yoki categoriyasi bo'yicha qidiring..."
+                    :prefix="h(SearchOutlined, { class: 'my-icon-class' })">
+                    <template #suffix>
+                        <span class="access">Ctrl+K</span>
+                    </template>
+                </a-input>
+                <a-button type="primary" size="large" @click="showModal">
+                    Add
+                </a-button>
+            </a-flex>
         </div>
         <a-table :columns="column" :data-source="filterdMedicines" :loading="loading" @change="onChange">
             <template #bodyCell="{ column, record }">
@@ -29,6 +34,9 @@
                 </template>
             </template>
         </a-table>
+        <a-modal title="Qo'shish" v-model:open="open" :footer="null" :width="600">
+
+        </a-modal>
     </div>
 </template>
 
@@ -81,6 +89,7 @@ const column = [
 
 const searchQuery = ref('')
 const searchInput = ref(null)
+const open = ref(false)
 
 //computeds
 const filterdMedicines = computed(() => {
@@ -102,7 +111,11 @@ const handleShortCut = (e) => {
 }
 
 const onChange = () => {
-    window.scroll({top:0 , behavior: 'smooth'})
+    window.scroll({ top: 0, behavior: 'smooth' })
+}
+
+const showModal = () => {
+    open.value = true
 }
 
 onMounted(() => {
