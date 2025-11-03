@@ -5,7 +5,7 @@
             <a-flex gap="6">
                 <a-input ref="searchInput" size="large" v-model:value="searchQuery"
                     placeholder="Dorilarni nomi yoki categoriyasi bo'yicha qidiring..."
-                    :prefix="h(SearchOutlined, { class: 'my-icon-class' })">
+                    :prefix="h(SearchOutlined, { class: 'my-icon-class' })" allowClear>
                     <template #suffix>
                         <span class="access">Ctrl+K</span>
                     </template>
@@ -34,8 +34,53 @@
                 </template>
             </template>
         </a-table>
-        <a-modal title="Qo'shish" v-model:open="open" :footer="null" :width="600">
-
+        <a-modal title="Dori Ma'lumotlarini Qo'shish" v-model:open="open" :footer="null" :width="600">
+            <p>Barcha kerakli ma'lumotlarni to'ldiring</p>
+            <a-form layout="vertical">
+                <a-form-item label="Dori Nomi" name="name">
+                    <a-input placeholder="Dori nomini kiriting" />
+                </a-form-item>
+                <a-form-item label="Faol Modda" name="activeIngredient">
+                    <a-input placeholder="Faol moddani kiriting" />
+                </a-form-item>
+                <a-form-item label="Kategoriya" name="category">
+                    <a-input placeholder="Kategoriyani kiriting" />
+                </a-form-item>
+                <a-form-item label="Ishlab Chiqaruvchi " name="manufacturer">
+                    <a-input placeholder="Firma nomi kiriting" />
+                </a-form-item>
+                <a-form-item label="Mamlakat" name="country">
+                    <a-input placeholder="Mamlakatni kiriting" />
+                </a-form-item>
+                <a-form-item label="Dozalash" name="dosage">
+                    <a-input placeholder="Doza miqdorini kiriting" />
+                </a-form-item>
+                <a-form-item label="Narxi" name="price">
+                    <a-input placeholder="Dori narxini kiriting" />
+                </a-form-item>
+                <a-form-item label="Ombordagi miqdor" name="stock">
+                    <a-input placeholder="Ombordagi midorni kiriting" />
+                </a-form-item>
+                <a-form-item label="Amal qilish mudati" name="expiryDate">
+                    <a-input placeholder="Amal qilish muddatini kiriting" />
+                </a-form-item>
+                <a-form-item>
+                    <a-checkbox>Sertifikat talap qiladimi</a-checkbox>
+                </a-form-item>
+                <a-form-item label="Ta'rif" name="description">
+                    <a-textarea placeholder="Dori haqida qisqacha malumot..." />
+                </a-form-item>
+                <a-form-item label="Saqlaash sharoiti" name="storageConditions">
+                    <a-input placeholder="Saqlash sharoitini kiriting" />
+                </a-form-item>
+                <a-form-item label="Qo'lash bo'yicha ko'rsatmalar" name="usageInstructions">
+                    <a-input placeholder="Qanday qo'llanishini kiriting..." />
+                </a-form-item>
+                <a-form-item label="Ogohlantish" name="WarningMessage">
+                    <a-textarea placeholder="Muhim ogohlantirish habari..."/>
+                </a-form-item>
+                
+            </a-form>
         </a-modal>
     </div>
 </template>
