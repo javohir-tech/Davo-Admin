@@ -79,7 +79,6 @@
                 <a-form-item label="Ogohlantish" name="WarningMessage">
                     <a-textarea placeholder="Muhim ogohlantirish habari..."/>
                 </a-form-item>
-                
             </a-form>
         </a-modal>
     </div>
