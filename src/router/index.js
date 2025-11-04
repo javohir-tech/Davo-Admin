@@ -6,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: '/auth',
-      component: () => import('@/Auth/Auth.vue')
+      component: () => import('@/Auth/Auth.vue'),
     },
     {
       path: '/',
@@ -14,30 +14,30 @@ const router = createRouter({
       children: [
         {
           path: '',
-          component: () => import('@/views/Home.vue')
+          component: () => import('@/views/Home.vue'),
         },
         {
           path: 'medicines',
-          component: () => import('@/views/Medicines.vue')
+          component: () => import('@/views/Medicines.vue'),
         },
         {
           path: 'doctors',
-          component: () => import('@/views/Doctors.vue')
+          component: () => import('@/views/Doctors.vue'),
         },
         {
           path: 'users',
-          component: () => import('@/views/Users.vue')
+          component: () => import('@/views/Users.vue'),
         },
         {
           path: 'articles',
-          component: () => import('@/views/Articles.vue')
+          component: () => import('@/views/Articles.vue'),
         },
         {
           path: 'services',
-          component: () => import('@/views/Services.vue')
-        }
-      ]
-    }
+          component: () => import('@/views/Services.vue'),
+        },
+      ],
+    },
   ],
 })
 

@@ -1,7 +1,3 @@
-<template>
-    xizmatlar
-</template>
+<template>xizmatlar</template>
 
-<script setup>
-
-</script>
+<script setup></script>

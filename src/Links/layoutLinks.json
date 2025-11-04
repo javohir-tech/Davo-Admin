@@ -1,38 +1,38 @@
 [
-    {
-        "id": 1,
-        "path": "/",
-        "name": "Home",
-        "icon": "FundProjectionScreenOutlined"
-    },
-    {
-        "id": 2,
-        "path": "/medicines",
-        "name": "Dorilar",
-        "icon": "MedicineBoxOutlined"
-    },
-    {
-        "id":3, 
-        "path":"/doctors", 
-        "name":"Doktorlar", 
-        "icon": "IdcardOutlined"
-    },
-    {
-        "id":4, 
-        "path":"/users", 
-        "name":"Foydalanuvchilar", 
-        "icon":"UserOutlined"
-    }, 
-    {
-        "id":5,
-        "path":"/articles", 
-        "name":"Maqolalar", 
-        "icon":"ReadOutlined"
-    }, 
-    {
-        "id":6, 
-        "path":"/services", 
-        "name":"Xizmatlar", 
-        "icon":"NodeIndexOutlined"
-    }
+  {
+    "id": 1,
+    "path": "/",
+    "name": "Home",
+    "icon": "FundProjectionScreenOutlined"
+  },
+  {
+    "id": 2,
+    "path": "/medicines",
+    "name": "Dorilar",
+    "icon": "MedicineBoxOutlined"
+  },
+  {
+    "id": 3,
+    "path": "/doctors",
+    "name": "Doktorlar",
+    "icon": "IdcardOutlined"
+  },
+  {
+    "id": 4,
+    "path": "/users",
+    "name": "Foydalanuvchilar",
+    "icon": "UserOutlined"
+  },
+  {
+    "id": 5,
+    "path": "/articles",
+    "name": "Maqolalar",
+    "icon": "ReadOutlined"
+  },
+  {
+    "id": 6,
+    "path": "/services",
+    "name": "Xizmatlar",
+    "icon": "NodeIndexOutlined"
+  }
 ]

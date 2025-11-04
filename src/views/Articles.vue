@@ -1,7 +1,3 @@
-<template>
-    Maqolalaar
-</template>
+<template>Maqolalaar</template>
 
-<script setup>
-
-</script>
+<script setup></script>

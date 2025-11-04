@@ -1,7 +1,3 @@
-<template>
-    users
-</template>
+<template>users</template>
 
-<script setup>
-
-</script>
+<script setup></script>

@@ -1,7 +1,3 @@
-<template>
-    doktorlar
-</template>
+<template>doktorlar</template>
 
-<script setup>
-
-</script>
+<script setup></script>
